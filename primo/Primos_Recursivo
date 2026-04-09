@@ -15,7 +15,7 @@ def primos_n(n, novo = 2):
         if not isinstance(n, int):
             raise TypeError("O número deve ser um inteiro.")
         if n <= 1:
-            raise ValueError('O número deve ser maior que 1')
+            raise ValueError('O número deve ser maior que 1.')
     
     if novo > n:
         return [] 
@@ -24,5 +24,5 @@ def primos_n(n, novo = 2):
     else:
         return primos_n(n, novo+1)
 
-inp = int(input('digite um numero inteiro e maior que 1:'))
+inp = int(input('digite um numero inteiro e maior que 1: '))
 print(primos_n(inp))
