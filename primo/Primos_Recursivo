@@ -1,0 +1,28 @@
+def primo(numero: int, divisor = 2):
+    if numero < 2:
+        return False
+    elif numero == 2 or numero == 3:
+        return True
+    if numero % divisor == 0:
+       return False
+    if divisor * divisor > numero:
+        return True
+
+    return primo(numero, divisor+1)
+
+def primos_n(n, novo = 2):
+    if novo == 2:
+        if not isinstance(n, int):
+            raise TypeError("O número deve ser um inteiro.")
+        if n <= 1:
+            raise ValueError('O número deve ser maior que 1')
+    
+    if novo > n:
+        return [] 
+    if primo(novo) == True:
+        return [novo] + primos_n(n, novo + 1)
+    else:
+        return primos_n(n, novo+1)
+
+inp = int(input('digite um numero inteiro e maior que 1:'))
+print(primos_n(inp))
