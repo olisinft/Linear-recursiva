@@ -1,4 +1,4 @@
-def primo(numero: int, divisor = 2):
+def primo(numero: int, divisor = 3):
     if numero < 2:
         return False
     if numero == 2 or numero == 3:
@@ -6,7 +6,7 @@ def primo(numero: int, divisor = 2):
     while divisor * divisor <= numero:
         if  numero % divisor == 0:
             return False
-        divisor += 1
+        divisor += 2
     return True
 
 def primos_n(n):
@@ -15,12 +15,11 @@ def primos_n(n):
     if n <= 1:
         raise ValueError("O número deve ser maior que 1.")
     
-    lista = []
-    for i in range(2, n+1):
+    lista = [2]
+    for i in range(3, n+1, 2):
         if primo(i) == True:
             lista.append(i)
     return (lista)
 
 inp = int(input('digite um numero inteiro e maior que 1: '))
 print(primos_n(inp))
-
